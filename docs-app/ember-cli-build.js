@@ -3,6 +3,10 @@
 const { Webpack } = require('@embroider/webpack');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+function isProduction() {
+  return EmberApp.env() === 'production';
+}
+
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     // Add options here
@@ -16,8 +20,46 @@ module.exports = function (defaults) {
 
   return require('@embroider/compat').compatBuild(app, Webpack, {
     packagerOptions: {
+      // Embroider lets us send our own options to the style-loader
+      cssLoaderOptions: {
+        // enable CSS modules
+        modules: {
+          // class naming template
+          localIdentName: isProduction()
+            ? '[sha512:hash:base64:5]'
+            : '[path][name]__[local]',
+          // global mode, can be either `global` or `local`
+          mode: 'local',
+        },
+        // don't create source maps in production
+        sourceMap: !isProduction(),
+      },
+
+      // publicAssetURL is used similarly to Ember CLI's asset fingerprint prepend option.
+      publicAssetURL: '/',
+
       webpackConfig: {
-        // ...
+        module: {
+          rules: [
+            {
+              // When webpack sees an import for a CSS files
+              exclude: /node_modules/,
+              test: /\.css$/i,
+              use: [
+                {
+                  // use the PostCSS loader addon
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: !isProduction(),
+                    postcssOptions: {
+                      config: './postcss.config.js',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
       },
     },
     skipBabel: [
