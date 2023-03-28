@@ -5,3 +5,9 @@ declare module 'docs-app/templates/*' {
   const tmpl: TemplateFactory;
   export default tmpl;
 }
+
+declare module '*.css' {
+  const styles: Record<string, string>;
+
+  export default styles;
+}
