@@ -1,6 +1,8 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
+import styles from './textarea.css';
+
 interface UiFormTextareaComponentSignature {
   Args: {
     changeset: Record<string, any>;
@@ -16,6 +18,8 @@ interface UiFormTextareaComponentSignature {
 }
 
 export default class UiFormTextareaComponent extends Component<UiFormTextareaComponentSignature> {
+  styles = styles;
+
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 

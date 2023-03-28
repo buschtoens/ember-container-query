@@ -1,6 +1,7 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import type { Data } from '../../../utils/components/widgets/widget-2';
+import styles from './stacked-chart.css';
 
 interface WidgetsWidget2StackedChartComponentSignature {
   Args: {
@@ -8,10 +9,9 @@ interface WidgetsWidget2StackedChartComponentSignature {
   };
 }
 
-const WidgetsWidget2StackedChartComponent =
-  templateOnlyComponent<WidgetsWidget2StackedChartComponentSignature>();
-
-export default WidgetsWidget2StackedChartComponent;
+export default class WidgetsWidget2StackedChartComponent extends Component<WidgetsWidget2StackedChartComponentSignature> {
+  styles = styles;
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

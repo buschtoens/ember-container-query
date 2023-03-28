@@ -1,21 +1,22 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
+
+import styles from './navigation-menu.css';
 
 type MenuItem = {
   label: string;
   route: string;
 };
 
-export interface NavigationMenuComponentSignature {
+interface NavigationMenuComponentSignature {
   Args: {
     menuItems: Array<MenuItem>;
     name?: string;
   };
 }
 
-const NavigationMenuComponent =
-  templateOnlyComponent<NavigationMenuComponentSignature>();
-
-export default NavigationMenuComponent;
+export default class NavigationMenuComponent extends Component<NavigationMenuComponentSignature> {
+  styles = styles;
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

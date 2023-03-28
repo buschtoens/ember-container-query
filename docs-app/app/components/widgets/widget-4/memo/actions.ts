@@ -1,15 +1,16 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
-export interface WidgetsWidget4MemoActionsComponentSignature {
+import styles from './actions.css';
+
+interface WidgetsWidget4MemoActionsComponentSignature {
   Args: {
     cqFeatures?: Record<'small' | 'large' | 'short', boolean>;
   };
 }
 
-const WidgetsWidget4MemoActionsComponent =
-  templateOnlyComponent<WidgetsWidget4MemoActionsComponentSignature>();
-
-export default WidgetsWidget4MemoActionsComponent;
+export default class WidgetsWidget4MemoActionsComponent extends Component<WidgetsWidget4MemoActionsComponentSignature> {
+  styles = styles;
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 
 import type { Track } from '../../data/album';
+import styles from './list.css';
 
 interface TracksListComponentSignature {
   Args: {
@@ -10,6 +11,8 @@ interface TracksListComponentSignature {
 }
 
 export default class TracksListComponent extends Component<TracksListComponentSignature> {
+  styles = styles;
+
   get numColumns(): number {
     const { numColumns } = this.args;
 

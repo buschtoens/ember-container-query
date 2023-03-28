@@ -3,10 +3,13 @@ import { tracked } from '@glimmer/tracking';
 
 import type { Concert } from '../../data/concert';
 import concertData from '../../data/concert';
+import styles from './widget-3.css';
 
 interface WidgetsWidget3ComponentSignature {}
 
 export default class WidgetsWidget3Component extends Component<WidgetsWidget3ComponentSignature> {
+  styles = styles;
+
   @tracked concertData = {} as Concert;
 
   /* @ts-expect-error Property 'Args' does not exist on type 'WidgetsWidget3ComponentSignature' */

@@ -1,6 +1,8 @@
 import { action, get } from '@ember/object';
 import Component from '@glimmer/component';
 
+import styles from './input.css';
+
 interface UiFormInputComponentSignature {
   Args: {
     changeset: Record<string, any>;
@@ -17,6 +19,8 @@ interface UiFormInputComponentSignature {
 }
 
 export default class UiFormInputComponent extends Component<UiFormInputComponentSignature> {
+  styles = styles;
+
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 
