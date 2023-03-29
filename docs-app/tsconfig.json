@@ -14,7 +14,16 @@
       ]
     },
     "moduleResolution": "node16",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.css$",
+          "noUncheckedIndexedAccess": true
+        }
+      }
+    ]
   },
   "include": [
     "app/**/*",
