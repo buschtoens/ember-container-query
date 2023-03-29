@@ -3,22 +3,25 @@
   as |CQ|
 >
   <div
-    class="{{this.styles.container}} {{unless CQ.features.tall this.styles.flat}}"
+    class="{{this.styles.container}}
+      {{unless CQ.features.tall this.styles.flat}}"
   >
     {{#if this.summary}}
       <div
-        class="{{this.styles.summary}} {{if
-          CQ.features.large
-          this.styles.horizontal-layout
-        }}"
+        class="{{this.styles.summary}}
+          {{if
+            CQ.features.large
+            this.styles.horizontal-layout
+          }}"
         tabindex="0"
       >
         <h3
           data-test-field="Music Format"
-          class="{{this.styles.music-format}} {{unless
-            CQ.features.large
-            this.styles.small-font-size
-          }}"
+          class="{{this.styles.music-format}}
+            {{unless
+              CQ.features.large
+              this.styles.small-font-size
+            }}"
         >
           <span class="{{this.styles.marker}}">
             {{svg-jar

@@ -3,7 +3,7 @@
     {{if @isInline this.styles.is-inline}}
     {{if @isWide this.styles.is-wide}}
     {{unless @errorMessage this.styles.no-feedback}}
-  "
+    "
 >
   <div class="{{this.styles.label}}">
     {{yield (hash inputId=this.inputId) to="label"}}
@@ -14,7 +14,9 @@
   </div>
 
   {{#if @errorMessage}}
-    <div class="{{this.styles.feedback}} {{this.styles.is-error}}">
+    <div
+      class="{{this.styles.feedback}} {{this.styles.is-error}}"
+    >
       {{svg-jar "alert" aria-hidden="true"}}
 
       <span

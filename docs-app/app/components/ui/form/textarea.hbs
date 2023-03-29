@@ -20,8 +20,11 @@
       disabled={{@isDisabled}}
       id={{f.inputId}}
       class="{{this.styles.textarea}}
-        {{if (or @isDisabled @isReadOnly) this.styles.is-disabled}}
-      "
+        {{if
+          (or @isDisabled @isReadOnly)
+          this.styles.is-disabled
+        }}
+        "
       placeholder={{@placeholder}}
       readonly={{@isReadOnly}}
       required={{@isRequired}}

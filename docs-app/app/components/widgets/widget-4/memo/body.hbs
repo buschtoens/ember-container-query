@@ -1,9 +1,10 @@
 <div
   data-test-memo-body
-  class="{{this.styles.body}} {{if
-    (or @cqFeatures.small @cqFeatures.short)
-    this.styles.minimal-layout
-  }}"
+  class="{{this.styles.body}}
+    {{if
+      (or @cqFeatures.small @cqFeatures.short)
+      this.styles.minimal-layout
+    }}"
 >
   <div class="{{this.styles.message}}" tabindex="0">
     <p>

@@ -25,8 +25,11 @@
       data-test-field={{@label}}
       class="{{this.styles.checkbox}}
         {{if this.isChecked this.styles.is-checked}}
-        {{if (or @isDisabled @isReadOnly) this.styles.is-disabled}}
-      "
+        {{if
+          (or @isDisabled @isReadOnly)
+          this.styles.is-disabled
+        }}
+        "
       role="checkbox"
       tabindex={{unless @isDisabled "0"}}
       {{on "click" this.updateValue}}
