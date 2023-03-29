@@ -19,8 +19,8 @@
       data-test-field={{@label}}
       disabled={{@isDisabled}}
       id={{f.inputId}}
-      local-class="input
-        {{if (or @isDisabled @isReadOnly) 'is-disabled'}}
+      class="{{this.styles.input}}
+        {{if (or @isDisabled @isReadOnly) this.styles.is-disabled}}
       "
       placeholder={{@placeholder}}
       readonly={{@isReadOnly}}
