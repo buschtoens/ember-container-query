@@ -45,27 +45,7 @@ module.exports = function (defaults) {
       publicAssetURL: '/',
 
       webpackConfig: {
-        module: {
-          rules: [
-            {
-              // When webpack sees an import for a CSS files
-              exclude: /node_modules/,
-              test: /\.css$/i,
-              use: [
-                {
-                  // use the PostCSS loader addon
-                  loader: 'postcss-loader',
-                  options: {
-                    sourceMap: !isProduction(),
-                    postcssOptions: {
-                      config: './postcss.config.js',
-                    },
-                  },
-                },
-              ],
-            },
-          ],
-        },
+        // ...
       },
     },
     skipBabel: [
