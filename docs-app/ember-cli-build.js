@@ -29,7 +29,13 @@ module.exports = function (defaults) {
             ? '[sha512:hash:base64:5]'
             : '[path][name]__[local]',
           // global mode, can be either `global` or `local`
-          mode: 'local',
+          mode: (resourcePath) => {
+            if (resourcePath.includes(`/${app.name}/`)) {
+              return 'local';
+            }
+
+            return 'global';
+          },
         },
         // don't create source maps in production
         sourceMap: !isProduction(),
