@@ -1,7 +1,7 @@
 <nav aria-label={{@name}} data-test-nav={{@name}}>
   <ul class="{{this.styles.list}}">
     {{#each @menuItems as |menuItem|}}
-      <li class="{{this.styles.item}}">
+      <li>
         <LinkTo
           @route={{menuItem.route}}
           data-test-link={{menuItem.label}}
